@@ -1,0 +1,55 @@
+- Code in Components
+
+LOOPING:
+🔑 Always use a key
+- Better than using index if you have real IDs:
+{users.map(user => (
+  <UserCard key={user.id} user={user} />
+))}
+
+Keys help React:
+- track items between renders
+- avoid weird UI bugs
+- improve performance
+
+🚫 Avoid using array index as key when:
+- list can reorder
+- items can be added/removed
+- list is dynamic
+
+🧠 Conditional looping:
+{
+    products
+    .filter(p => p.inStock)
+    .map(p => (
+        <Product key={p.id} product={p} />
+    ))
+}
+
+Inline version:
+{items.length === 0 && <p>No items found</p>}
+
+⚠️ What NOT to do
+
+❌ Traditional for loops in JSX
+❌ Mutating arrays (push, splice) during render
+❌ Forgetting key
+❌ Doing heavy loops directly in JSX
+
+⚡ Performance tip (big lists)
+- If your list is large:
+- use useMemo to memoize the mapped result
+- or use virtualization (like react-window)
+
+const renderedItems = useMemo(
+  () => items.map(i => <Item key={i.id} item={i} />),
+  [items]
+);
+
+🧩 Rule of thumb
+
+In React:
+- loop with map
+- render components
+- give them stable keys
+- keep logic OUT of JSX when it gets complex

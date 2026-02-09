@@ -1,0 +1,54 @@
+📁 Where should images go?
+
+✅ 1. src/assets/ → for images used by components
+Best for:
+- cards
+- backgrounds
+- icons inside UI
+- anything imported into JSX
+
+Example structure:
+src/
+  assets/
+    images/
+      movies/
+      ui/
+    cards/
+
+Usage:
+import poster from "../assets/images/movies/inception.jpg";
+<img src={poster} />
+
+✅ bundled
+✅ optimized
+✅ works with imports
+✅ best practice for component images
+
+✅ 2. public/ → for static files
+Best for:
+- favicons
+- logos
+- OG images
+- things not tied to a component
+
+Usage:
+<img src="/vite.svg" />
+
+🚫 not bundled
+🚫 not optimized
+🚫 no import
+✅ fine for global/static stuff
+
+3. 🧠 Rule of thumb
+| Use case                        | Put it in                   |
+| ------------------------------- | --------------------------- |
+| Used in components              | `src/assets/`               |
+| Used in Card.jsx, Hero.jsx, etc | `src/assets/images/`        |
+| Favicon / logo                  | `public/`                   |
+| Dynamic movie posters           | `src/assets/images/movies/` |
+
+4. ⚠️ Don’t do this
+❌ Put all images in public
+❌ Import from public
+❌ Mix page components and UI components
+❌ Store images next to random JSX files

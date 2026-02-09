@@ -1,0 +1,13 @@
+FOR AUTOCOMPLETE
+In settings.json:
+
+"javascript.suggest.autoImports": true,
+"typescript.suggest.autoImports": true,
+"editor.codeActionsOnSave": {
+  "source.organizeImports": true
+}
+
+And make sure you have:
+✅ TypeScript installed (even for JS projects)
+✅ Tailwind IntelliSense (for className help)
+✅ ESLint (optional but helpful)

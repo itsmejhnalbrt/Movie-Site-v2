@@ -1,0 +1,125 @@
+✅ Recommended folder structure sample
+
+MOVIE-SITE-V2/
+├── public/
+│   ├── favicon.svg
+│   └── og-image.png
+│
+├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   │   ├── movies/
+│   │   │   │   ├── inception.jpg
+│   │   │   │   └── avatar.jpg
+│   │   │   ├── ui/
+│   │   │   │   ├── logo.svg
+│   │   │   │   └── placeholder.png
+│   │   │   └── backgrounds/
+│   │   │       └── hero-bg.jpg
+│   │   │
+│   │   ├── icons/
+│   │   │   └── star.svg
+│   │   │
+│   │   └── fonts/
+│   │       └── Inter.woff2
+│   │
+│   ├── components/
+│   │   ├── layout/
+│   │   │   ├── Navbar.jsx
+│   │   │   └── Footer.jsx
+│   │   │
+│   │   ├── movie/
+│   │   │   ├── MovieCard.jsx
+│   │   │   └── MovieGrid.jsx
+│   │   │
+│   │   ├── ui/
+│   │   │   ├── Button.jsx
+│   │   │   └── Spinner.jsx
+│   │   │
+│   │   └── Card.jsx   (if you want a generic one)
+│   │
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── Movies.jsx
+│   │   ├── MovieDetails.jsx
+│   │   └── NotFound.jsx
+│   │
+│   ├── services/
+│   │   └── movieApi.js
+│   │
+│   ├── hooks/
+│   │   └── useMovies.js
+│   │
+│   ├── styles/
+│   │   └── globals.css
+│   │
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+│
+├── index.html
+├── package.json
+├── vite.config.js
+└── README.md
+
+🧠 How to decide where things go
+📄 pages/
+Route-level components:
+- Home
+- Movies list
+- Movie details
+- About page
+These are tied to routing.
+
+🧩 components/
+Reusable UI pieces
+- Cards
+- Navbars
+- Buttons
+- Lists
+- Modals
+- Grouped by feature when possible (movie/, layout/, ui/).
+
+🖼 assets/
+Only static assets
+- images
+- icons
+- fonts
+- Used like:
+
+🌐 services/
+All API logic:
+- fetchMovies()
+- fetchMovieById()
+Keeps components clean.
+
+🪝 hooks/
+Custom hooks:
+- useMovies()
+- useDebounce()
+
+🧭 Routing example
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Movies from "./pages/Movies";
+import MovieDetails from "./pages/MovieDetails";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/movies/:id" element={<MovieDetails />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+🧼 Why this structure is good
+✅ Easy to scale
+✅ Easy to reason about
+✅ Keeps logic out of UI
+✅ Makes imports predictable
+✅ Good for teams
+✅ Good for future you
