@@ -1,6 +1,7 @@
 // hooks
 import ThumbsDownSvg from '@/assets/icons/cards/thumbs-down.svg?react';
 import ThumbsUpSvg from '@/assets/icons/cards/thumbs-up.svg?react';
+import reactLogo from '@/assets/react.svg';
 import { useState, useEffect } from 'react';
 
 const Card = ({ title }) => {
@@ -14,7 +15,7 @@ const Card = ({ title }) => {
     }, [viewCount]);
 
     // functions
-    // const toggleLike = (value) => setLikeStatus(likeStatus === value ? false : value);
+    const toggleLike = (value) => setLikeStatus(likeStatus === value ? false : value);
 
     return (
         <div 
@@ -25,7 +26,7 @@ const Card = ({ title }) => {
 
             {/* <picture className="block"> */}
                 {/* <source srcSet="" type="image/webp" /> */}
-                <img src="src/assets/react.svg" alt="svg" />
+                <img src={reactLogo} alt="svg" />
             {/* </picture> */}
 
             <div className="flex items-center gap-3">
