@@ -1,0 +1,59 @@
+🧠 Why not just rely on catch?
+Because fetch does NOT throw an error for HTTP failures like:
+- 401 Unauthorized
+- 404 Not Found
+- 500 Server error
+
+This will NOT go to catch automatically:
+
+Even if the server returns 404, fetch resolves successfully.
+So you must manually detect failure:
+
+if (!response.ok) {
+  throw new Error(errorData);
+}
+
+That line is what forces the code into catch.
+Without it, this would still run:
+
+🔁 Why re-throw inside catch?
+catch (error) {
+  console.log(error);
+  throw error;
+}
+
+This means:
+✔ log the error here
+✔ BUT let whoever called this function handle it too
+
+Example:
+try {
+  await api.get('discover/movie');
+} catch (err) {
+  setErrorMessage(err.message);
+}
+
+If you didn’t re-throw:
+❌ the calling code would never know it failed
+❌ your UI wouldn’t show an error
+❌ bugs get swallowed silently
+
+EXTRA:
+🚫 What would be wrong?
+catch (error) {
+  console.log(error);
+}
+
+This is dangerous because:
+❌ error disappears
+❌ app thinks request succeeded
+❌ debugging becomes painful
+❌ UI won’t react properly
+
+✅ Final mental model
+Think of it like this:
+
+throw = pull the fire alarm
+catch = fire department arrives
+rethrow = call the chief
+😄

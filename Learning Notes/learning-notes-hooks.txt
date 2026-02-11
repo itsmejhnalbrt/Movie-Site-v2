@@ -1,0 +1,10 @@
+useState
+- in larger Dont use the current
+- Do NOT mutate useState variable, only mutate the state value using the setter function
+useEffect
+useContext
+useCallback
+useMemo
+useRef
+useReducer
+useTransition
