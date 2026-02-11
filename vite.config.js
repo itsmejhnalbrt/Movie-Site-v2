@@ -5,14 +5,14 @@ import svgr from "vite-plugin-svgr";
 
 // https://vite.dev/config/
 export default defineConfig({
-  resolve: {
-    alias: {
-      "@": "/src",
-    },
-  },
   plugins: [
     react(), 
     tailwindcss(), 
     svgr()
   ],
+  resolve: {
+    alias: {
+      "@": "/src",
+    },
+  },
 })
