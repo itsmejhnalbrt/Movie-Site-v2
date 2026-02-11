@@ -1,7 +1,7 @@
 // hooks
 import ThumbsDownSvg from '@/assets/icons/cards/thumbs-down.svg?react';
 import ThumbsUpSvg from '@/assets/icons/cards/thumbs-up.svg?react';
-import reactLogo from './assets/react.svg';
+import reactLogo from '@/assets/react.svg';
 import { useState, useEffect } from 'react';
 
 const Card = ({ title }) => {
