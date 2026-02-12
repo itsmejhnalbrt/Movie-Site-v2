@@ -19,14 +19,14 @@ const Card = ({ title }) => {
 
     return (
         <div 
-            className="space-y-6 bg-white p-4 rounded shadow text-black" 
+            className="flex flex-col justify-between space-y-6 aspect-square bg-white p-4 rounded shadow text-black" 
             onClick={() => setviewCount((prevState) => prevState + 1)}
             >
-            <h1 className="text-2xl text-black font-medium">{title}</h1>
+            <h1 className="leading-none text-2xl text-black font-medium">{title}</h1>
 
             {/* <picture className="block"> */}
                 {/* <source srcSet="" type="image/webp" /> */}
-                <img src={reactLogo} alt="svg" />
+                <img src={reactLogo} class="animate-spin mx-auto block w-fit rotate" alt="svg" />
             {/* </picture> */}
 
             <div className="flex items-center gap-3">
@@ -36,7 +36,7 @@ const Card = ({ title }) => {
                 <button className="cursor-pointer" onClick={() => toggleLike("dislike")} >
                     <ThumbsDownSvg className={`w-5 h-fit ${likeStatus === "dislike" ? 'fill-blue-500!' : 'fill-black!'}`}/>
                 </button>
-                <p>
+                <p className='ml-auto'>
                     Views: {viewCount}
                 </p>
             </div>
