@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { API_URL } from "@/constants/useApi";
+import { API_URL } from "@/constants/api";
 import { useApi } from "@/hooks/useFetchApi";
 
 export function useFetchMovies() {

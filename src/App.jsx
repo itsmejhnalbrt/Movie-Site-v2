@@ -5,7 +5,6 @@ import Search from "@/components/movies/Search";
 import Spinner from "@/components/utils/icons/Spinner";
 import Pol from "@/components/movies/Pol";
 import { useFetchMovies } from "@/hooks/useFetchMovies";
-// import { API_URL } from "@/constants/useApi";
 
 const App = () => {
   // custom hooks
