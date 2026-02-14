@@ -62,6 +62,18 @@ MOVIE-SITE-V2/
 ├── vite.config.js
 └── README.md
 
+🏗️ Folder responsibility (mental model)
+| Folder        | Responsibility               |
+| ------------- | ---------------------------- |
+| `components/` | UI only                      |
+| `pages/`      | Page-level layout            |
+| `services/`   | Data fetching / side effects |
+| `hooks/`      | Reusable logic               |
+| `constants/`  | Fixed values & config        |
+| `assets/`     | Images, fonts, icons         |
+| `styles/`     | CSS                          |
+
+
 🧠 How to decide where things go
 📄 pages/
 Route-level components:
