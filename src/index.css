@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --color-primary: #030014;
@@ -15,13 +15,13 @@
 
 @layer base {
   body {
-    font-family: 'DM Sans', serif;
+    font-family: "DM Sans", serif;
     font-optical-sizing: auto;
     background: #030014;
   }
 
   h1 {
-    @apply mx-auto max-w-4xl text-center text-5xl font-bold leading-tight tracking-[-1%] text-white sm:text-[64px] sm:leading-[76px];
+    @apply mx-auto max-w-4xl text-center text-5xl leading-tight font-bold tracking-[-1%] text-white sm:text-[64px] sm:leading-[76px];
   }
 
   h2 {
@@ -29,15 +29,15 @@
   }
 
   main {
-    @apply min-h-screen relative bg-primary;
+    @apply bg-primary relative min-h-screen;
   }
 
   header {
-    @apply sm:mt-10 mt-5;
+    @apply mt-5 sm:mt-10;
   }
 
   header img {
-    @apply w-full max-w-lg h-auto object-contain mx-auto drop-shadow-md;
+    @apply mx-auto h-auto w-full max-w-lg object-contain drop-shadow-md;
   }
 }
 
@@ -47,18 +47,18 @@
   } */
 
   .wrapper {
-    @apply px-5 py-12 xs:p-10 max-w-7xl mx-auto flex flex-col relative z-10;
+    @apply xs:p-10 relative z-10 mx-auto flex max-w-7xl flex-col px-5 py-12;
   }
 
   .trending {
     @apply mt-20;
 
     & ul {
-      @apply flex flex-row overflow-y-auto gap-5 -mt-10 w-full hide-scrollbar;
+      @apply hide-scrollbar -mt-10 flex w-full flex-row gap-5 overflow-y-auto;
     }
 
     & ul li {
-      @apply min-w-[230px] flex flex-row items-center;
+      @apply flex min-w-[230px] flex-row items-center;
     }
 
     & ul li p {
@@ -66,12 +66,12 @@
     }
 
     & ul li img {
-      @apply w-[127px] h-[163px] rounded-lg object-cover -ml-3.5;
+      @apply -ml-3.5 h-[163px] w-[127px] rounded-lg object-cover;
     }
   }
 
   .search {
-    @apply w-full bg-light-100/5 px-4 py-3 rounded-lg mt-10 max-w-3xl mx-auto;
+    @apply bg-light-100/5 mx-auto mt-10 w-full max-w-3xl rounded-lg px-4 py-3;
 
     & div {
       @apply relative flex items-center;
@@ -82,7 +82,7 @@
     }
 
     & input {
-      @apply w-full bg-transparent py-2 sm:pr-10 pl-10 text-base text-gray-200 placeholder-light-200 outline-hidden;
+      @apply placeholder-light-200 w-full bg-transparent py-2 pl-10 text-base text-gray-200 outline-hidden sm:pr-10;
     }
   }
 
@@ -90,23 +90,23 @@
     @apply space-y-9;
 
     & ul {
-      @apply grid grid-cols-1 gap-5 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+      @apply xs:grid-cols-2 grid grid-cols-1 gap-5 md:grid-cols-3 lg:grid-cols-4;
     }
   }
 
   .movie-card {
-    @apply bg-dark-100 p-5 rounded-2xl shadow-inner shadow-light-100/10;
+    @apply bg-dark-100 shadow-light-100/10 rounded-2xl p-5 shadow-inner;
 
     & img {
-      @apply rounded-lg h-auto w-full;
+      @apply h-auto w-full rounded-lg;
     }
 
     & h3 {
-      @apply text-white font-bold text-base line-clamp-1;
+      @apply line-clamp-1 text-base font-bold text-white;
     }
 
     & .content {
-      @apply mt-2 flex flex-row items-center flex-wrap gap-2;
+      @apply mt-2 flex flex-row flex-wrap items-center gap-2;
     }
 
     & .rating {
@@ -118,7 +118,7 @@
     }
 
     & .rating p {
-      @apply font-bold text-base text-white;
+      @apply text-base font-bold text-white;
     }
 
     & .content span {
@@ -126,11 +126,11 @@
     }
 
     & .content .lang {
-      @apply capitalize text-gray-100 font-medium text-base;
+      @apply text-base font-medium text-gray-100 capitalize;
     }
 
     & .content .year {
-      @apply text-gray-100 font-medium text-base;
+      @apply text-base font-medium text-gray-100;
     }
   }
 }
@@ -142,7 +142,7 @@
 @utility fancy-text {
   -webkit-text-stroke: 5px rgba(206, 206, 251, 0.5);
   font-size: 190px;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: "Bebas Neue", sans-serif;
 }
 
 @utility hide-scrollbar {

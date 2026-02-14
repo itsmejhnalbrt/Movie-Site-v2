@@ -1,47 +1,51 @@
 // hooks
-import ThumbsDownSvg from '@/assets/icons/cards/thumbs-down.svg?react';
-import ThumbsUpSvg from '@/assets/icons/cards/thumbs-up.svg?react';
-import reactLogo from '@/assets/react.svg';
-import { useState, useEffect } from 'react';
+import Star from "@/assets/icons/cards/star.svg";
+import PosterNotAvailable from "./PosterNotAvailable";
 
-const Card = ({ title }) => {
-    // useState
-    const [likeStatus, setLikeStatus] = useState(false);
-    const [viewCount, setviewCount] = useState(0);
+const Card = ({
+  movie: {
+    title,
+    poster_path,
+    original_language,
+    release_date,
+    vote_average,
+    name,
+  },
+}) => {
+  return (
+    <div className="movie-card space-y-5 text-white!">
+      {poster_path ? (
+        <img
+          src={
+            poster_path
+              ? "https://image.tmdb.org/t/p/w500/" + poster_path
+              : "/no-movie.png"
+          }
+          className="block aspect-6/9 w-fit object-cover"
+          alt={title}
+        />
+      ) : (
+        <PosterNotAvailable />
+      )}
 
-    // useEffect
-    useEffect(() => {
-        console.log("CARD RENDERED");
-    }, [viewCount]);
+      <div className="flex flex-col justify-between space-y-3">
+        <h3 className="leading-none font-medium">{title ? title : name}</h3>
 
-    // functions
-    const toggleLike = (value) => setLikeStatus(likeStatus === value ? false : value);
-
-    return (
-        <div 
-            className="flex flex-col justify-between space-y-6 aspect-square bg-white p-4 rounded shadow text-black" 
-            onClick={() => setviewCount((prevState) => prevState + 1)}
-            >
-            <h1 className="leading-none text-2xl text-black font-medium">{title}</h1>
-
-            {/* <picture className="block"> */}
-                {/* <source srcSet="" type="image/webp" /> */}
-                <img src={reactLogo} class="animate-spin mx-auto block w-fit rotate" alt="svg" />
-            {/* </picture> */}
-
-            <div className="flex items-center gap-3">
-                <button className="cursor-pointer p-1" onClick={() => toggleLike("like")} >
-                    <ThumbsUpSvg className={`w-5 h-fit ${likeStatus === "like" ? 'fill-blue-500!' : 'fill-black!'}`}/>
-                </button>
-                <button className="cursor-pointer" onClick={() => toggleLike("dislike")} >
-                    <ThumbsDownSvg className={`w-5 h-fit ${likeStatus === "dislike" ? 'fill-blue-500!' : 'fill-black!'}`}/>
-                </button>
-                <p className='ml-auto'>
-                    Views: {viewCount}
-                </p>
-            </div>
+        <div className="content">
+          <div className="rating">
+            <img src={Star} alt="star" />
+            <p>{vote_average ? vote_average.toFixed(1) : "0"}</p>
+          </div>
+          <span>•</span>
+          <p className="lang">{original_language}</p>
+          <span>•</span>
+          <p className="year">
+            {release_date ? release_date.split("-")[0] : "N/A"}
+          </p>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
-export default Card
+export default Card;
